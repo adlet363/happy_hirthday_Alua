@@ -1,0 +1,202 @@
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+img{
+  width: 250px;
+  position: absolute;
+  margin-top: 0px;
+  justify-content: center;
+  filter: drop-shadow(0 0 5px #ccf69e);
+}
+.ball{
+  width: 200px;
+  margin-right: 600px;
+  margin-bottom: 60px;
+  filter: drop-shadow(0 0 5px #cb70c0);
+}
+.ball-1{
+  width: 200px;
+  margin-left: 600px;
+  filter: drop-shadow(0 0 5px #ec8a89);
+}
+.ball-2{
+  width: 200px;
+  margin-left: 850px;
+  margin-top: 150px;
+  filter: drop-shadow(0 0 5px #cb70c0);
+}
+.ball-3{
+  width: 200px;
+  margin-right: 850px;
+  margin-top: 200px;
+  filter: drop-shadow(0 0 5px #ec8a89);
+}
+.tt{
+  width: 320px;
+}
+
+.neon {
+  font-size: 60px;
+  color: rgb(183, 207, 93); /* основной цвет текста */
+  text-shadow:
+    0 0 5px rgb(200, 248, 24),
+    0 0 10px rgb(1, 97, 221),
+    0 0 20px rgb(198, 226, 231),
+    0 0 40px #0ff,
+    0 0 80px rgb(167, 59, 125);
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  margin-top: 300px;
+  margin-right: 230px;
+}
+.firework {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: #0ff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  animation: explode 1s ease-out forwards;
+}
+.neon-h{
+  display: none;
+}
+.neon-b{
+  display: none;
+}
+.neon-Alua{
+  display: none;
+}
+.neon-alua{
+  position: absolute;
+  font-size: 60px;
+  color: rgb(183, 207, 93); /* основной цвет текста */
+  text-shadow:
+    0 0 5px rgb(200, 248, 24),
+    0 0 10px rgb(1, 97, 221),
+    0 0 20px rgb(198, 226, 231),
+    0 0 40px #0ff,
+    0 0 80px rgb(167, 59, 125);
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  margin-top: 430px;
+  margin-left: 0px;
+}
+
+@keyframes explode {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px){
+  img{
+    width: 250px;
+    position: absolute;
+    margin-top: 0px;
+    justify-content: center;
+    filter: drop-shadow(0 0 5px #ccf69e);
+  }
+  .tt{
+    display: flex;
+    margin-top: 500px;
+    margin-left: 240px;
+  }
+  .ball{
+    width: 200px;
+    margin-left: 420px;
+    margin-top: 800px;
+    filter: drop-shadow(0 0 5px #cb70c0);
+  }
+  .ball-1{
+    width: 200px;
+    margin-left: 630px;
+    margin-top: 700px;
+    filter: drop-shadow(0 0 5px #ec8a89);
+  }
+  .ball-2{
+    width: 200px;
+    margin-left: 500px;
+    margin-top: 500px;
+    filter: drop-shadow(0 0 5px #ec8a89);;
+  }
+  .ball-3{
+    width: 200px;
+    margin-left: 800px;
+    margin-top: 500px;
+    filter: drop-shadow(0 0 5px #ec8a89);
+  }
+  
+  .neon {
+    display: none;
+  }
+  .neon-h{
+    position: absolute;
+    display: block;
+    font-size: 60px;
+  color: rgb(183, 207, 93); /* основной цвет текста */
+  text-shadow:
+    0 0 5px rgb(200, 248, 24),
+    0 0 10px rgb(1, 97, 221),
+    0 0 20px rgb(198, 226, 231),
+    0 0 40px #0ff,
+    0 0 80px rgb(167, 59, 125);
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  margin-top: 720px;
+  margin-left: 230px;
+  }
+  .neon-b{
+    position: absolute;
+    display: block;
+    font-size: 60px;
+  color: rgb(183, 207, 93); /* основной цвет текста */
+  text-shadow:
+    0 0 5px rgb(200, 248, 24),
+    0 0 10px rgb(1, 97, 221),
+    0 0 20px rgb(198, 226, 231),
+    0 0 40px #0ff,
+    0 0 80px rgb(167, 59, 125);
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  margin-top: 840px;
+  margin-left: 230px;
+  }
+  .neon-Alua{
+    position: absolute;
+    display: block;
+    font-size: 60px;
+  color: rgb(183, 207, 93); /* основной цвет текста */
+  text-shadow:
+    0 0 5px rgb(200, 248, 24),
+    0 0 10px rgb(1, 97, 221),
+    0 0 20px rgb(198, 226, 231),
+    0 0 40px #0ff,
+    0 0 80px rgb(167, 59, 125);
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  margin-top: 960px;
+  margin-left: 230px;
+  }
+  .firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #0ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    animation: explode 1s ease-out forwards;
+  }
+  
+}
