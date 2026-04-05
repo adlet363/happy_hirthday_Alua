@@ -3,26 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Happy Birthday Alua</title>
   <link rel="stylesheet" href="stiyl.css">
 </head>
 <body>
-  <img class="tt" src="img/Apr 5, 2026, 12_39_25 AM.png" alt="">
-  <img class="ball" src="img/pup-removebg-preview.png" alt="">
-  <img class="ball-1" src="img/yellow-removebg-preview.png" alt="">
-  <img class="ball-2" src="img/pup-removebg-preview.png" alt="">
-  <img class="ball-3" src="img/yellow-removebg-preview.png" alt="">
-  <h1>Happy Birthday!</h1>
-  <div class="neon">Happy Birthday!</div>
-  <div class="neon-alua">Aula</div>
-  <div class="neon-h">Happy</div>
-  <div class="neon-b">Birthday!</div>
-  <div class="neon-Alua">Alua</div>
+  <button id="startButton" class="start-button">🎉 Нажми для сюрприза</button>
 
-  <audio id="myAudio" src="audio/Happy_Birtday_Alua.mp3" loop autoplay></audio>
+  <div id="celebration" class="celebration hidden" aria-hidden="true">
+    <img class="tt reveal" src="img/Apr 5, 2026, 12_39_25 AM.png" alt="Birthday image">
+    <img class="ball reveal" src="img/pup-removebg-preview.png" alt="Balloon">
+    <img class="ball-1 reveal" src="img/yellow-removebg-preview.png" alt="Balloon">
+    <img class="ball-2 reveal" src="img/pup-removebg-preview.png" alt="Balloon">
+    <img class="ball-3 reveal" src="img/yellow-removebg-preview.png" alt="Balloon">
+    <div class="neon reveal">Happy Birthday!</div>
+    <div class="neon-alua reveal">Aula</div>
+    <div class="neon-h reveal">Happy</div>
+    <div class="neon-b reveal">Birthday!</div>
+    <div class="neon-Alua reveal">Alua</div>
+  </div>
 
+  <audio id="myAudio" src="audio/Happy_Birtday_Alua.mp3" loop></audio>
 
   <script>
+    const colors = ['#ff00ff', '#0ff', '#ff0', '#f00', '#0f0', '#f90'];
+    const startButton = document.getElementById('startButton');
+    const celebration = document.getElementById('celebration');
+    const audio = document.getElementById('myAudio');
+    let fireworksIntervalId;
+
     function createFirework(x, y, color, count) {
       for (let i = 0; i < count; i++) {
         const ball = document.createElement('div');
@@ -31,52 +39,42 @@
         ball.style.top = y + 'px';
         ball.style.backgroundColor = color;
         ball.style.boxShadow = `0 0 10px ${color}, 0 0 20px ${color}`;
-  
-        // случайное направление
+
         const angle = Math.random() * 2 * Math.PI;
-        const distance = Math.random() * 200; // увеличиваем дальность
+        const distance = Math.random() * 200;
         const dx = Math.cos(angle) * distance + 'px';
         const dy = Math.sin(angle) * distance + 'px';
         ball.style.setProperty('--x', dx);
         ball.style.setProperty('--y', dy);
-  
+
         document.body.appendChild(ball);
-  
-        // удаляем после анимации
         setTimeout(() => ball.remove(), 1000);
       }
     }
-  
-    const colors = ['#ff00ff', '#0ff', '#ff0', '#f00', '#0f0', '#f90'];
-  
-    // создаём фейерверки чаще и больше
-    setInterval(() => {
-      const x = Math.random() * window.innerWidth;
-      const y = Math.random() * window.innerHeight / 2;
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      createFirework(x, y, color, 40); // 40 шариков вместо 20
-    }, 700); // каждые 0.7 секунды
 
-    const audio = document.getElementById("myAudio");
-    const delay = 3000; // задержка (3 сек)
-    const maxPlays = 2; // сколько раз проиграть
-    let count = 0;
-
-    function playWithLimit() {
-     if (count >= maxPlays) return;
-
-      audio.play();
-      count++;
-
-      audio.onended = () => {
-        setTimeout(() => {
-          audio.currentTime = 0;
-          playWithLimit();
-        }, delay);
-      };
+    function startFireworks() {
+      fireworksIntervalId = setInterval(() => {
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight / 2;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        createFirework(x, y, color, 40);
+      }, 700);
     }
 
-    playWithLimit();
+    startButton.addEventListener('click', () => {
+      startButton.classList.add('hidden');
+      celebration.classList.remove('hidden');
+      celebration.setAttribute('aria-hidden', 'false');
+
+      if (!fireworksIntervalId) {
+        startFireworks();
+      }
+
+      audio.currentTime = 0;
+      audio.play().catch(() => {
+        // Если браузер заблокировал звук, повторная попытка возможна при следующем клике.
+      });
+    });
   </script>
 </body>
 </html>
