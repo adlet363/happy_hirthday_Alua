@@ -189,6 +189,9 @@ img{
   margin-top: 960px;
   margin-left: 230px;
   }
+  .neon-alua{
+    display: none;
+  }
   .firework {
     position: absolute;
     width: 5px;
